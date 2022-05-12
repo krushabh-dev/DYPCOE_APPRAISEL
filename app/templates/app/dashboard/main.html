@@ -1,0 +1,183 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DYPCOE Appraisel</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+<!-- <link rel="stylesheet" href={% static 'assets/css/style.css' %}> -->
+  <link href={% static 'asset/css/style.css' %} rel="stylesheet" />
+  
+    <link href={% static 'asset/css/profilecard.css' %} rel="stylesheet" />
+  <link href={% static 'asset/css/formstyle.css' %} rel="stylesheet" />
+</head>
+<body class="two-sides">
+<section id="side-nav-section">
+    <nav class="navbar-vertical navbar">
+    <div class="slimScrollDiv" style="position: relative; width: auto; height: 97%;"><div class="nav-scroller" style=" width: auto; height: 97%;">
+        <!-- Brand logo -->
+        <a class="navbar-brand" href="/home">
+            <div class="d-flex">
+                <img width="55" height="35" class="img-fluid mr-2" src="data:image/jpeg;base64,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" alt="dypcoe">
+                <div class="dypcoe-details-logo">
+                    <h2>DYPCOE</h2>
+                    <p class="text-muted p-0 m-0">Appraisel System V0.1</p>
+                </div>
+                
+            </div>
+            
+        </a>
+        <!-- Navbar nav -->
+        <ul class="navbar-nav flex-column" id="sideNavbar">
+            <li class="nav-item">
+                <a class="nav-link has-arrow  active " href="/home">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home nav-icon icon-xs mr-2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>  Dashboard
+                </a>
+
+            </li>
+
+
+             <!-- Nav item -->
+                        <li class="nav-item">
+                            <div class="navbar-heading">Submissions</div>
+                        </li>
+
+                        <!-- Nav item -->
+                        <li class="nav-item">
+                            <a class="nav-link has-arrow " href="/home">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-package nav-icon icon-xs mr-2"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>  Teaching-Learning <br> Performance
+                            </a>
+                         </li>
+                  
+
+                        <li class="nav-item">
+                            <a class="nav-link has-arrow  collapsed " href="/home2" data-bs-toggle="collapse" data-bs-target="#navMenuLevel" aria-expanded="false" aria-controls="navMenuLevel">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-corner-left-down nav-icon icon-xs mr-2"><polyline points="14 15 9 20 4 15"></polyline><path d="M20 4h-7a4 4 0 0 0-4 4v12"></path></svg> Research and <br> Publications
+                            </a>
+                            
+                        </li>
+
+         <!-- Nav item -->
+         <li class="nav-item">
+            <div class="navbar-heading">Account</div>
+        </li>
+
+
+             <!-- Nav item -->
+             <li class="nav-item">
+                <a class="nav-link has-arrow  collapsed " href="/myprofile" data-bs-toggle="collapse" data-bs-target="#navPages" aria-expanded="false" aria-controls="navPages">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers nav-icon icon-xs mr-2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg> My Profile
+                    <!-- Teaching Load Assignment -->
+                </a>
+
+                </li>
+
+
+                        <!-- Nav item -->
+                        <li class="nav-item">
+                            <a class="nav-link has-arrow  collapsed " href="/404" data-bs-toggle="collapse" data-bs-target="#navAuthentication" aria-expanded="false" aria-controls="navAuthentication">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-lock nav-icon icon-xs mr-2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Change Password
+                            </a>
+                            
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="/logout">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sidebar nav-icon icon-xs mr-2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+                                Logout
+                            </a>
+                        </li>
+
+                       
+
+                                         <!-- Nav item -->
+                        <li class="nav-item">
+                            <div class="navbar-heading">Contact Option</div>
+                        </li>
+
+                        <!-- Nav item -->
+                        <li class="nav-item">
+                            <a class="nav-link has-arrow " href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-package nav-icon icon-xs mr-2"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>  FAQ's
+                            </a>
+                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link has-arrow " href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clipboard nav-icon icon-xs mr-2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg> Contact Support
+                            </a>
+                         </li>
+                         <li class="nav-item">
+                            <a class="nav-link has-arrow " href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-git-pull-request nav-icon icon-xs mr-2"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M13 6h3a2 2 0 0 1 2 2v7"></path><line x1="6" y1="9" x2="6" y2="21"></line></svg>  Credits
+                            </a>
+                         </li>
+
+
+
+
+                    </ul>
+
+                </div><div class="slimScrollBar" style="background: rgb(0, 0, 0); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 635px;"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
+</nav>
+</section>
+<section id="main-content-section">
+<header id="navbar-section">
+    <nav class="navbar navbar-expand-lg navbar-light py-3">
+  <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a id="nav-toggle" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu nav-icon me-2 icon-xs"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></a>
+      </li>
+      
+    </ul>
+    <div class="nav-icons-main d-flex">
+      <li class="nav-item dropdown mr-3">
+        <a class="nav-link dropdown-toggle btn-light btn-icon" href="#" id="notificationNavDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell icon-xs"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="notificationNavDropdown">
+          <p class="dropdown-item">Notifications</p>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">No Recent Notifications</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown mr-3">
+        <a class="nav-link dropdown-toggle btn-light btn-icon" href="#" id="profileDropdpwn" role="button" data-toggle="dropdown" aria-expanded="false">
+          <img class="nav-link btn-light btn-icon m-4" src="https://dypcoeakurdi.collpoll.com/images/profile.png" alt="profile">
+        </a>
+        <div class="dropdown-menu" aria-labelledby="profileDropdpwn">
+          <a class="dropdown-item" href="/myprofile">My Profile</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="/logout">Logout</a>
+        </div>
+      </li>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main>
+    
+   <div class="bg-primary pt-10 pb-21"></div>
+    <section id="maindivarea">
+       
+
+        {% block content %} {% endblock content %}
+
+   </section>
+
+</main>
+
+</section>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+</body>
+</html>

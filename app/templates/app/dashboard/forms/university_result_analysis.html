@@ -1,0 +1,167 @@
+<!-- university_result_analysis.html -->
+
+{% extends 'app/dashboard/main.html' %}
+{% block content %}
+
+<section id="maindivarea">
+        <div class="container mt-n22 px-6">
+            
+                <form class="mt-4"  method="post" action="{% url 'formfive' %}">
+                  {% csrf_token %}
+                  <div class="row">
+            
+                <div class="col-md-9">
+                    <div class="card">
+              <!-- card body -->
+              <div class="card-body">
+                <div class=" mb-6">
+                  <h4 class="mb-1">University result analysis</h4>
+
+                </div>
+                
+                
+                <div>
+                  <!-- border -->
+                 
+                      
+                    <!-- row -->
+                    <div class="mb-3 row">
+                      <label for="fullName" class="col-sm-4 col-form-label
+                          form-label">  Class </label>
+                      <div class="col-sm-5 mb-3 mb-lg-0">
+                        <select class="form-control" name="currentclass" id="">
+                          <option value="">Class</option>
+                          <option value="SE">SE</option>
+                          <option value="TE">TE</option>
+                          <option value="BE">BE</option>
+                        </select>
+                      </div>
+                      <div class="col-sm-3 mb-3 mb-lg-0">
+                        <select class="form-control" name="division" id="">
+                          <option value="">Division</option>
+                          <option value="A">A</option>
+                          <option value="B">B</option>
+                          <option value="C">C</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <!-- row -->
+
+                    <div class="mb-3 row">
+                      <label for="academicyear" class="col-sm-4 col-form-label
+                          form-label">  Academic Year & Semester </label>
+                      <div class="col-sm-5 mb-3 mb-lg-0">
+                        <select class="form-control" name="academicyear" id="">
+                          <option value="">Academic Year </option>
+                          <option value="2020-21">2020-21</option>
+                          <option value="2021-22">2021-22</option>
+                          <option value="2022-23">2022-23</option>
+                          <option value="2023-24">2023-24</option>
+                          <option value="2024-25">2024-25</option>
+                          <option value="2025-26">2025-26</option>
+                          <option value="2026-27">2026-27</option>
+                          <option value="2027-28">2027-28</option>
+                        </select>
+                      </div>
+                      <div class="col-sm-3 mb-3 mb-lg-0">
+                        <select class="form-control" name="semester" id="">
+                          <option value="">Semester</option>
+                          <option value="Sem I">Sem I</option>
+                          <option value="Sem II">Sem II</option>
+                          <option value="Sem III">Sem III</option>
+                          <option value="Sem IV">Sem IV</option>
+                          <option value="Sem V">Sem V</option>
+                          <option value="Sem VI">Sem VI</option>
+                          <option value="Sem VII">Sem VII</option>
+                          <option value="Sem VIII">Sem VIII</option>
+                        </select>
+                      </div>
+                      
+                    </div>
+
+                    <!-- row -->
+
+                    <div class="mb-3 row">
+                      <label for="subject" class="col-sm-4 col-form-label
+                          form-label">  Select Subject </label>
+                      <div class="col-sm-8 mb-3 mb-lg-0">
+                        <select class="form-control" name="subjectname" id="">
+                          <option value="">Subject</option>
+                          <option value="Website Application Development">Website Application Development</option>
+                          <option value="Computer Network Security">Computer Network Security</option>
+                          <option value="Data Science and Big Data Analysis">Data Science and Big Data Analysis</option>
+                          <option value="Elective-2 Cloud Computing">Elective-2 Cloud Computing</option>
+                          <option value="Internship">Internship</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <!-- row -->
+
+                    <div class="mb-3 row">
+                      <label for="numberofTimes" class="col-sm-4 col-form-label
+                          form-label">  Number of Times </label>
+                      <div class="col-sm-8 mb-3 mb-lg-0">
+                        <input name="numberoftaught" type="number" min="0" class="form-control" placeholder="Number of Times Subject Taught" id="NumberofTimes" required="">
+                      </div>
+                    </div>
+
+                    <!-- row -->
+
+                    <div class="mb-3 row">
+                      <label for="LastYearResult" class="col-sm-4 col-form-label
+                          form-label">  Last Year Result </label>
+                      <div class="col-sm-8 mb-3 mb-lg-0">
+                        <input name="lastyresult" type="number" min="0" class="form-control" placeholder="Last Year Result" id="LastYearResult" required="">
+                      </div>
+                    </div>
+
+                    <!-- row -->
+
+                    <div class="mb-3 row">
+                      <label for="CurrentYearResult" class="col-sm-4 col-form-label
+                          form-label">  Current Year Result </label>
+                      <div class="col-sm-8 mb-3 mb-lg-0">
+                        <input name="currentyresult" type="number" min="0" class="form-control" placeholder="Current Year Result" id="CurrentYearResult" required="">
+                      </div>
+                    </div>
+
+                    <!-- row -->
+                    <div class="mb-3 row">
+                      <label for="position" class="col-sm-4 col-form-label
+                          form-label">Score Claimed by Faculty</label>
+                      <div class="col-md-8 col-12">
+                        <input name="fclaimedmarks" type="number" class="form-control" placeholder="Score Claimed by Faculty" id="ScoreClaimedbyFaculty" required="">
+                      </div>
+                    </div>
+                    
+                </div>
+              </div>
+            </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                      <div class="card-body">
+                        <div>
+                      <div action="#" class="dropzone mb-3 border-dashed dz-clickable">
+                        <label for="resultanalysis" class="col-sm-12 col-form-label
+                          form-label">  Upload Result Analysis report (pdf or jpeg) </label>
+                      <div class="dz-default dz-message"><button class="dz-button" type="button">Drop files here to upload</button></div></div>
+                      
+                    </div>
+                        <input type="submit" value="Save &amp; Next" class="btn btn-primary w-100" required="">
+                      
+                      </div>
+                      
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+                  </form>
+        </div>
+   </section>
+
+{% endblock content %}

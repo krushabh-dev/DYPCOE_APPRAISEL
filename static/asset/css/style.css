@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+
+body.two-sides{
+    display: flex;
+    overflow-x: hidden;
+}
+
+.pb-21 {
+    padding-bottom: 9.5rem!important;
+}
+
+.pt-10 {
+    padding-top: 4rem!important;
+}
+
+.px-6 {
+    padding-left: 2rem!important;
+    padding-right: 2rem!important;
+}
+
+.mt-n22 {
+    margin-top: -10rem!important;
+}
+/* ------------------------------------------------- */
+/* Side Bar Styling Starts - DYPCOE Appraisel System */
+/* ------------------------------------------------- */
+
+.navbar-vertical {
+    background-color: #212b36;
+    border-right: 1px solid #212b36;
+    bottom: 0;
+    display: block;
+    margin-left: -17rem;
+    max-width: 250px;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    transition: margin .25s ease-out;
+    width: 100%;
+}
+
+@media (min-width: 768px){
+.navbar-vertical {
+    margin-left: 0;
+}
+}
+
+.navbar-vertical .nav-scroller, .navbar-vertical .slimScrollDiv {
+    height: 100%!important;
+    overflow-y: auto;
+}
+
+.navbar-vertical .navbar-brand {
+    display: block;
+    margin-right: 0;
+    padding: 1rem 1.5rem 1.5rem;
+}
+
+.navbar-vertical .navbar-brand h2 {
+    color: #f4f6f8;
+    height: 1.875rem;
+}
+
+.dypcoe-details-logo p {
+    font-size: 12px;
+}
+
+.flex-column {
+    flex-direction: column!important;
+}
+
+.navbar-vertical .navbar-nav .nav-item .nav-link.active {
+    color: #f4f6f8;
+}
+
+.navbar-vertical .navbar-nav .nav-item .nav-link {
+    align-items: center;
+    color: #919eab;
+    display: flex;
+    font-weight: 500;
+    line-height: 1.8;
+    padding: 0.5rem 1.5rem;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+    white-space: nowrap;
+}
+
+.navbar-vertical .navbar-nav .nav-icon {
+    font-size: .875rem;
+    opacity: .6;
+    transition: all .5s;
+}
+
+.navbar-vertical .navbar-heading {
+    color: #454f5b;
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .08rem;
+    padding: 1rem 1.5rem;
+    text-transform: uppercase;
+}
+
+/* Scrollbar */
+
+.nav-scroller::-webkit-scrollbar {
+  width: 5px;
+  content:"dypcoe"
+}
+
+/* Track */
+.nav-scroller::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+.nav-scroller::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+.nav-scroller::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+/* ------------------------------------------------- */
+/* Main Section Styling Starts - DYPCOE Appraisel System */
+/* ------------------------------------------------- */
+
+
+#main-content-section{
+    
+    min-height: 100vh;
+    min-width: 100vw;
+    transition: margin .25s ease-out;
+}
+
+
+@media (min-width: 768px){
+#main-content-section {
+    margin-left: 15.625rem;
+    min-width: 0;
+    width: 100%;
+}
+}
+
+.nav-icons-main li.nav-item {
+    list-style: none;
+}
+
+.btn-light:hover {
+    background-color: #fafbfc;
+    border-color: #fafbfb;
+    color: rgb(5, 21, 255);
+}
+
+.btn-icon {
+    align-items: center;
+    display: inline-flex;
+    flex-shrink: 0;
+    font-size: .92969rem;
+    font-weight: 400;
+    height: 2.5rem;
+    justify-content: center;
+    padding: 0;
+    position: relative;
+    width: 2.5rem;
+    border-radius: 50%!important;
+}
+
+.nav-icons-main .dropdown-menu {
+    margin-left: -12rem;
+}
+
+.nav-icons-main .dropdown-toggle::after {
+    display: none;
+}
+
+.welcome-note h2 {
+    font-size: 6rem;
+    padding-top: 2rem;
+    color: white;
+}
+
+.options-available li {
+    list-style: none;
+    margin-bottom: 1rem;
+}
+
+a.option-link {
+    padding-left: 32px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+a.option-link:hover {
+    text-decoration: none;
+    transform: translateX(10px);
+    transition-duration: 0.5s;
+}
+
+.card {
+    border: 0;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgb(0 0 20 / 8%), 0 1px 2px rgb(0 0 20 / 8%);
+}
+
+.small-btn-font{
+    font-size: 10px;
+}
+
+@media (min-width: 767.99px){
+    .long-text{
+        white-space: nowrap;
+        width: 325px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}

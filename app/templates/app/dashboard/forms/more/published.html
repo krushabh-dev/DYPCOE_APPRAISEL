@@ -1,0 +1,100 @@
+<!-- teaching_and_load_assesment.html -->
+
+{% extends 'app/dashboard/main.html' %}
+{% block content %}
+
+<section id="maindivarea">
+        <div class="container mt-n22 px-6">
+            
+                <form class="mt-4" method="post" action="{% url 'formone' %}">
+                  {% csrf_token %}
+                  <div class="row">
+                  <div class="col-md-12">
+                      <div class="card">
+                <!-- card body -->
+                <div class="card-body">
+                  <div class=" mb-6">
+                    <h4 class="mb-1">Book and Patent Published</h4>
+                  </div>
+                  <div>
+                    <!-- border -->
+
+                      <!-- row -->
+                      <div class="mb-3 row">
+                        <label for="position" class="col-sm-4 col-form-label
+                            form-label">Name of Book/Patent Published</label>
+                        <div class="col-md-8 col-12">
+                          <input type="text" class="form-control" placeholder="Name of Book/Patent Published" name="NoOFBookPatent" id="NoOFBookPatent" required="">
+                        </div>
+                      </div>
+                      
+                      <!-- row -->
+                      <div class="mb-3 row">
+                        <label for="position" class="col-sm-4 col-form-label
+                            form-label">Publisher Name</label>
+                        <div class="col-md-8 col-12">
+                          <input type="text" class="form-control" placeholder="Publisher Name" name="publisherName" id="publisherName" required="">
+                        </div>
+                      </div>
+
+                      <!-- row -->
+                      <div class="mb-3 row">
+                        <label for="position" class="col-sm-4 col-form-label
+                            form-label">Publisher Category</label>
+                        <div class="col-md-8 col-12">
+                          <select class="form-control" name="publisherCategory" id="publisherCategory" required="">
+                              <option value="">Publisher Category</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <!-- row -->
+                      <div class="mb-3 row">
+                        <label for="position" class="col-sm-4 col-form-label
+                            form-label">E-Copy of Book/Patent</label>
+                        <div class="col-md-8 col-12">
+                          <input type="file" class="form-control" placeholder="E-Copy of Book/Patent" name="EcopyofBookPatent" id="EcopyofBookPatent" required="">
+                        </div>
+                      </div>
+
+                      <!-- row -->
+                      <div class="mb-3 row">
+                        <label for="position" class="col-sm-4 col-form-label
+                            form-label"> Journal Link</label>
+                        <div class="col-md-8 col-12">
+                          <input type="url" class="form-control" placeholder=" Journal Link" name="journallink" id="journallink" required="">
+                        </div>
+                      </div>
+
+                      <!-- row -->
+                      <div class="mb-3 row">
+                        <label for="position" class="col-sm-4 col-form-label
+                            form-label">Marks Claimed</label>
+                        <div class="col-md-3 col-12">
+                          <input type="number" class="form-control" placeholder="Claimed Marks" name="fclaimedmarks" id="fclaimedmarks" required="">
+                        </div>
+                        <div class="col-md-1">of</div>
+                        <div class="col-md-4 col-12">
+                          <input type="number" class="form-control" placeholder="Out of Marks" name="totalmarks" id="totalmarks" required="">
+                        </div>
+                      </div>
+                      
+                      <!-- row -->
+                      <div class="mb-3 row">
+                        <div class="col-md-12 col-12 text-center">
+                          <input type="submit" class="w-75 btn btn-primary" value="Save &amp; Next">
+                        </div>
+                      </div>
+                    
+                  </div>
+                </div>
+              </div>
+                  </div>
+                 
+                  </div>
+                </form>
+            
+        </div>
+   </section>
+
+{% endblock content %}

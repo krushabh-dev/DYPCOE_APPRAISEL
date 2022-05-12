@@ -1,0 +1,152 @@
+<!-- student_related_activities.html -->
+
+{% extends 'app/dashboard/main.html' %}
+{% block content %}
+<style>
+  .twouploadfields .dropzone {
+    height: 65px !important;
+}
+
+.twouploadfields .dropzone .dz-message {
+    margin: 2.5em 0;
+}
+
+</style>
+
+<section id="maindivarea">
+        <div class="container mt-n22 px-6">
+          <form class="mt-4"  method="post" action="{% url 'formthree' %}">
+            {% csrf_token %}
+            <div class="row justify-content-center">
+                
+                <div class="col-md-10 mb-3">
+                    <div class="card">
+              <!-- card body -->
+              <div class="card-body">
+                <div class=" mb-6">
+                  <h4 class="mb-1">Student Related Activities </h4>
+
+                </div>
+                
+                
+                <div>
+                  <!-- border -->
+                 
+                  
+                    <!-- row -->
+                    <div class="mb-3 row">
+                      <label for="activityname" class="col-sm-4 col-form-label
+                          form-label">  Student activities Conducted </label>
+                      <div class="col-sm-8 mb-3 mb-lg-0">
+                        <select class="form-control" name="studentactivityname" id="">
+                          <option value="">Student activities Conducted</option>
+                          <option value="Guest Lecture">Guest Lecture</option>
+                          <option value="Alumni talk">Alumni talk</option>
+                          <option value="workshop">workshop</option>
+                          <option value="seminar">seminar</option>
+                          <option value="add on training">add on training</option>
+                          <option value="value added courses">value added courses</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <!-- row -->
+
+                    <div class="mb-3 row">
+                      <label for="fullName" class="col-sm-4 col-form-label
+                          form-label">  Class </label>
+                      <div class="col-sm-5 mb-3 mb-lg-0">
+                        <select class="form-control" name="currentclass" id="">
+                          <option value="">Class</option>
+                          <option value="SE">SE</option>
+                          <option value="TE">TE</option>
+                          <option value="BE">BE</option>
+                        </select>
+                      </div>
+                      <div class="col-sm-3 mb-3 mb-lg-0">
+                        <select class="form-control" name="division" id="">
+                          <option value="">Division</option>
+                          <option value="A">A</option>
+                          <option value="B">B</option>
+                          <option value="C">C</option>
+                        </select>
+                      </div>
+                    </div>
+
+                     <!-- row -->
+
+                    <div class="mb-3 row">
+                      <label for="subject" class="col-sm-4 col-form-label
+                          form-label">  Select Subject </label>
+                      <div class="col-sm-8 mb-3 mb-lg-0">
+                        <select class="form-control" name="subjectname" id="">
+                          <option value="">Subject</option>
+                          <option value="Website Application Development">Website Application Development</option>
+                          <option value="Computer Network Security">Computer Network Security</option>
+                          <option value="Data Science and Big Data Analysis">Data Science and Big Data Analysis</option>
+                          <option value="Elective-2 Cloud Computing">Elective-2 Cloud Computing</option>
+                          <option value="Internship">Internship</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <!-- row -->
+
+                    <div class="mb-3 row">
+                      <label for="numberoflectures" class="col-sm-4 col-form-label
+                          form-label">  Number of Students </label>
+                      <div class="col-sm-8 mb-3 mb-lg-0">
+                        <input type="number" class="form-control" name="numberofstudent" placeholder="Number of Students" id="No_of_Student" required="">
+                      </div>
+                    </div>
+
+                    <!-- row -->
+                    <div class="mb-3 row">
+                      <label for="position" class="col-sm-4 col-form-label
+                          form-label">Date of Activity</label>
+                      <div class="col-md-8 col-12">
+                        <input type="date" name="dateofactivity" class="form-control" placeholder="Date_of_Exam" id="DateofExam" required="">
+                      </div>
+                    </div>
+
+                    <!-- row -->
+                    <div class="mb-3 row">
+                      <label for="uploadfile" class="col-sm-4 col-form-label
+                          form-label">Upload activity report</label>
+                      <div class="col-md-8 col-12">
+                        <input type="file" class="form-control" placeholder="Upload activity reports" id="uploadfile" required="">
+                      </div>
+                    </div>
+
+                     <!-- row -->
+                    <div class="mb-3 row">
+                      <label for="numberoflectures" class="col-sm-4 col-form-label
+                          form-label">  Claimed Marks </label>
+                      <div class="col-sm-4 mb-3 mb-lg-0">
+                        <input type="number" name="fclaimedmarks" min="0" max="20" class="form-control" placeholder="Claimed Marks" id="Claimed_Marks" required="">
+                      </div>
+                      <div class="col-sm-2 mb-3 mb-lg-0">
+                        <p>out of</p>
+                      </div>
+                      <div class="col-sm-2 mb-3 mb-lg-0">
+                        <input type="text" class="form-control" placeholder="marks" id="marks" value="20" required="" disabled="">
+                      </div>
+                    </div>
+
+                    <!-- row -->
+                    <div class="mb-3 row">
+                      <div class="col-md-12 col-12 text-center">
+                        <input type="submit" class="w-75 btn btn-primary" value="Save & Next">
+                      </div>
+                    </div>
+
+                  
+                </div>
+              </div>
+            </div>
+                </div>
+             </form>   
+        </div>
+   </section>
+
+{% endblock content %}

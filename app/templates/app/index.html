@@ -1,0 +1,465 @@
+{% extends 'app/dashboard/main.html' %}
+{% load static %}    
+    {% block content %}
+    {% if user.is_authenticated %}
+          {% if user.first_name == "FACULTY" %}
+            <section id="maindivarea">
+        <div class="container mt-n22 px-6">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <div class="card">
+              <!-- card body -->
+              <div class="card-body">
+                <div class=" mb-6">
+                  <h4 class="mb-1">General Settings</h4>
+
+                </div>
+                
+                
+                <div>
+                  <!-- border -->
+                 
+                  <form class="mt-4" method="post" action="{% url 'profileupdate' %}" >
+                    <!-- row --> 
+                    {% csrf_token %}
+                    <div class="mb-3 row">
+
+                      <label for="fullName" class="col-sm-4 col-form-label
+                          form-label">Full name</label>
+                      <div class="col-sm-2 mb-3 mb-lg-0">
+                        <select name="pron" id="pron" class="form-control" required="">
+                            <option value="">Select</option>
+                            <option value="Dr.">Dr.</option>
+                            <option value="Mr.">Mr.</option>
+                            <option value="Mrs.">Mrs.</option>
+                            <option value="Ms.">Ms.</option>
+                            <option value="Ku.">Ku.</option>
+                        </select>
+                      </div>
+                      <div class="col-sm-3 mb-3 mb-lg-0">
+                        <input type="text" class="form-control" placeholder="First name" id="firstname" name="firstname" required="">
+                      </div>
+                      <div class="col-sm-3">
+                        <input type="text" class="form-control" placeholder="Last name" id="lastName" name="lastName" required="">
+                      </div>
+                    </div>
+
+                     <!-- row -->
+
+                    <div class="mb-3 row">
+                      <label for="designation" class="col-sm-4 col-form-label
+                          form-label">Designation</label>
+                      <div class="col-sm-8 mb-3 mb-lg-0">
+                        
+                      <select name="designation" id="designation" class="form-control" required="">
+                        <option value="">Select Designation</option>
+                        <option value="Assistant Professor">Assistant Professor</option>
+                        <option value="Senior Assistant Professor">Senior Assistant Professor</option>
+                        <option value="Associate Professor">Associate Professor</option>
+                        <option value="Senior Associate Professor">Senior Associate Professor</option>
+                        <option value="Professor">Professor</option>
+                      </select>
+                      </div>
+                      
+                    </div>
+
+                     <!-- row -->
+
+                    <div class="mb-3 row">
+                      <label for="facultyid" class="col-sm-4 col-form-label
+                          form-label">Faculty ID</label>
+                      <div class="col-sm-8">
+                        <input type="text" class="form-control" placeholder="Faculty ID" name="FacultyID" id="FacultyID" required="">
+                      </div>
+                      
+                    </div>
+
+                    
+                     <!-- row -->
+
+                    <div class="mb-3 row">
+                      <label for="nameofInstitute" class="col-sm-4 col-form-label
+                          form-label">Name of Institute</label>
+                      <div class="col-sm-8 mb-3 mb-lg-0">
+                        
+                      <select name="nameofInstitute" id="nameofInstitute" class="form-control" required="">
+                        <option value="">Name of Institute</option>
+                        <option value="Dr. D.Y. Patil Pratishthan's D.Y. Patil College of Engineering, Akurdi, Pune">Dr. D.Y. Patil Pratishthan's D.Y. Patil College of Engineering, Akurdi, Pune</option>
+                        <option value="other">other</option>
+                      </select>
+                      </div>
+                    </div>
+
+                    <!-- row -->
+
+                    <div class="mb-3 row">
+                      <label for="nameofDepartment" class="col-sm-4 col-form-label
+                          form-label">Name of Department</label>
+                      <div class="col-sm-8 mb-3 mb-lg-0">
+                        
+                      <select name="nameofDepartment" id="nameofDepartment" class="form-control" required="">
+                        <option value="">Name of Department</option>
+                        <option value="Information Technology Engineering">Information Technology Engineering</option>
+                        <option value="Computer Science Engineering">Computer Science Engineering</option>
+                        <option value="Civil Engineering">Civil Engineering</option>
+                        <option value="Mechanical Engineering">Mechanical Engineering</option>
+                        <option value="Production Engineering">Production Engineering</option>
+                        <option value="Instrumentation Engineering">Instrumentation Engineering</option>
+                        <option value="Electronics and Telecommunication Engineering">Electronics and Telecommunication Engineering</option>
+                        <option value="other">other</option>
+                      </select>
+                      </div>
+                    </div>
+
+                    <!-- row -->
+                    <div class="mb-3 row">
+                      <label for="email" class="col-sm-4 col-form-label
+                          form-label">Email</label>
+                      <div class="col-md-8 col-12">
+                        <input type="email" class="form-control" placeholder="Email" name="email" id="email" value={{user.email }} required="" readonly>
+                      </div>
+                    </div>
+
+                     <!-- row -->
+                    <div class="mb-3 row">
+                      <label for="phone" class="col-sm-4 col-form-label
+                          form-label">Phone</label>
+                      <div class="col-md-2 col-12">
+                        <select name="countrycode" class="form-control">
+                        <option value="+91">+91</option>
+                    </select>
+                      </div>
+                      <div class="col-md-6 col-12">
+                        <input type="text" class="form-control" placeholder="Phone" id="phone" name="phone" required="">
+                      </div>
+                    </div>
+
+                     <!-- row -->
+                    <div class="mb-3 row">
+                      <label for="location" class="col-sm-4 col-form-label
+                          form-label">Location</label>
+                      
+                      <div class="col-md-4 col-12">
+                        <input type="text" class="form-control" placeholder="City Name" id="location" name="city" required="">
+                      </div>
+                      <div class="col-md-4 col-12">
+                        <select name="statelocation" class="form-control">
+                        <option value="">State</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Gujrat">Gujrat</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="West Bengal">West Bengal</option>
+                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                        <option value="Telangana">Telangana</option>
+                        <option value="Other">Other</option>
+                    </select>
+                      </div>
+                    </div>
+
+                  
+                    <!-- row -->
+                    <div class="mb-3 row">
+                      <label for="dop" class="col-sm-4 col-form-label
+                          form-label">Date of Birth</label>
+                      <div class="col-md-8 col-12">
+                        <input type="date" name="dob" class="form-control" placeholder="Date of Birth" id="dob" required="">
+                      </div>
+                    </div>
+
+                    <!-- row -->
+                    <div class="mb-3 row">
+                      <label for="dop" class="col-sm-4 col-form-label
+                          form-label">Date of Joining Institute</label>
+                      <div class="col-md-8 col-12">
+                        <input type="date" name="joiningdate" class="form-control" placeholder="Joining Date" id="Joining" required="">
+                      </div>
+                    </div>
+                    <!-- row -->
+                    <div class="mb-3 row">
+                      <label for="experianceyear" class="col-sm-4 col-form-label
+                          form-label">Experience at DY Institute</label>
+                      <div class="col-md-8 col-12">
+                        <input type="number" class="form-control" name="expyears" placeholder="Experience (in Years)" id="Experience" required="">
+                      </div>
+                    </div>
+                    <!-- row -->
+                    <div class="mb-3 row">
+                      <label for="experianceyear" class="col-sm-4 col-form-label
+                          form-label">Experience other than DY Institute</label>
+                      <div class="col-md-8 col-12">
+                        <input type="number" class="form-control" name="ndyexpyears" placeholder="Experience (in Years)" id="Experience" required="">
+                      </div>
+                    </div>
+                  
+                    <!-- row -->
+
+                    <div class="mb-3 row">
+                      <label for="yearofappraisel" class="col-sm-4 col-form-label
+                          form-label">Year of Appraisel</label>
+                      <div class="col-sm-8 mb-3 mb-lg-0">
+                        
+                      <select name="yearofappraisel" id="yearofappraisel" class="form-control" required="">
+                        <option value="">Year of Appraisel</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                        <option value="2027">2027</option>
+                        <option value="2028">2028</option>
+                        <option value="2029">2029</option>
+                      </select>
+                      </div>
+                    </div>
+                    
+                     <!-- row -->
+
+                    <div class="mb-3 row">
+                      <input type="submit" class="w-50 ml-3 btn btn-primary" role="submit" value="Submit">
+                    </div>
+                  
+                  </form>
+                </div>
+              </div>
+            </div>
+                </div>
+            </div>
+        </div>
+   </section>
+          {% elif user.first_name == "HOD" %}
+                <section id="maindivarea">
+        <div class="container mt-n22 px-6">
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <div class="card">
+              <!-- card body -->
+              <div class="card-body">
+                <div class=" mb-6">
+                  <h4 class="mb-1">General Settings</h4>
+
+                </div>
+                
+                
+                <div>
+                  <!-- border -->
+                 
+                  <form class="mt-4" method="post" action="{% url 'profileupdate' %}" >
+                    <!-- row --> 
+                    {% csrf_token %}
+                    <div class="mb-3 row">
+
+                      <label for="fullName" class="col-sm-4 col-form-label
+                          form-label">Full name</label>
+                      <div class="col-sm-2 mb-3 mb-lg-0">
+                        <select name="pron" id="pron" class="form-control" required="">
+                            <option value="">Select</option>
+                            <option value="Dr.">Dr.</option>
+                            <option value="Mr.">Mr.</option>
+                            <option value="Mrs.">Mrs.</option>
+                            <option value="Ms.">Ms.</option>
+                            <option value="Ku.">Ku.</option>
+                        </select>
+                      </div>
+                      <div class="col-sm-3 mb-3 mb-lg-0">
+                        <input type="text" class="form-control" placeholder="First name" id="firstname" name="firstname" required="">
+                      </div>
+                      <div class="col-sm-3">
+                        <input type="text" class="form-control" placeholder="Last name" id="lastName" name="lastName" required="">
+                      </div>
+                    </div>
+
+                     <!-- row -->
+
+                    <div class="mb-3 row">
+                      <label for="designation" class="col-sm-4 col-form-label
+                          form-label">Designation</label>
+                      <div class="col-sm-8 mb-3 mb-lg-0">
+                        
+                      <select name="designation" id="designation" class="form-control" required="">
+                        <option value="">Select Designation</option>
+                        <option value="Assistant Professor">Assistant Professor</option>
+                        <option value="Senior Assistant Professor">Senior Assistant Professor</option>
+                        <option value="Associate Professor">Associate Professor</option>
+                        <option value="Senior Associate Professor">Senior Associate Professor</option>
+                        <option value="Professor">Professor</option>
+                      </select>
+                      </div>
+                      
+                    </div>
+
+                     <!-- row -->
+
+                    <div class="mb-3 row">
+                      <label for="facultyid" class="col-sm-4 col-form-label
+                          form-label">Faculty ID</label>
+                      <div class="col-sm-8">
+                        <input type="text" class="form-control" placeholder="Faculty ID" name="FacultyID" id="FacultyID" required="">
+                      </div>
+                      
+                    </div>
+
+                    
+                     <!-- row -->
+
+                    <div class="mb-3 row">
+                      <label for="nameofInstitute" class="col-sm-4 col-form-label
+                          form-label">Name of Institute</label>
+                      <div class="col-sm-8 mb-3 mb-lg-0">
+                        
+                      <select name="nameofInstitute" id="nameofInstitute" class="form-control" required="">
+                        <option value="">Name of Institute</option>
+                        <option value="Dr. D.Y. Patil Pratishthan's D.Y. Patil College of Engineering, Akurdi, Pune">Dr. D.Y. Patil Pratishthan's D.Y. Patil College of Engineering, Akurdi, Pune</option>
+                        <option value="other">other</option>
+                      </select>
+                      </div>
+                    </div>
+
+                    <!-- row -->
+
+                    <div class="mb-3 row">
+                      <label for="nameofDepartment" class="col-sm-4 col-form-label
+                          form-label">Name of Department</label>
+                      <div class="col-sm-8 mb-3 mb-lg-0">
+                        
+                      <select name="nameofDepartment" id="nameofDepartment" class="form-control" required="">
+                        <option value="">Name of Department</option>
+                        <option value="Information Technology Engineering">Information Technology Engineering</option>
+                        <option value="Computer Science Engineering">Computer Science Engineering</option>
+                        <option value="Civil Engineering">Civil Engineering</option>
+                        <option value="Mechanical Engineering">Mechanical Engineering</option>
+                        <option value="Production Engineering">Production Engineering</option>
+                        <option value="Instrumentation Engineering">Instrumentation Engineering</option>
+                        <option value="Electronics and Telecommunication Engineering">Electronics and Telecommunication Engineering</option>
+                        <option value="other">other</option>
+                      </select>
+                      </div>
+                    </div>
+
+                    <!-- row -->
+                    <div class="mb-3 row">
+                      <label for="email" class="col-sm-4 col-form-label
+                          form-label">Email</label>
+                      <div class="col-md-8 col-12">
+                        <input type="email" class="form-control" placeholder="Email" name="email" id="email" value={{user.email }} required="" readonly>
+                      </div>
+                    </div>
+
+                     <!-- row -->
+                    <div class="mb-3 row">
+                      <label for="phone" class="col-sm-4 col-form-label
+                          form-label">Phone</label>
+                      <div class="col-md-2 col-12">
+                        <select name="countrycode" class="form-control">
+                        <option value="+91">+91</option>
+                    </select>
+                      </div>
+                      <div class="col-md-6 col-12">
+                        <input type="text" class="form-control" placeholder="Phone" id="phone" name="phone" required="">
+                      </div>
+                    </div>
+
+                     <!-- row -->
+                    <div class="mb-3 row">
+                      <label for="location" class="col-sm-4 col-form-label
+                          form-label">Location</label>
+                      
+                      <div class="col-md-4 col-12">
+                        <input type="text" class="form-control" placeholder="City Name" id="location" name="city" required="">
+                      </div>
+                      <div class="col-md-4 col-12">
+                        <select name="statelocation" class="form-control">
+                        <option value="">State</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Gujrat">Gujrat</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="West Bengal">West Bengal</option>
+                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                        <option value="Telangana">Telangana</option>
+                        <option value="Other">Other</option>
+                    </select>
+                      </div>
+                    </div>
+
+                  
+                    <!-- row -->
+                    <div class="mb-3 row">
+                      <label for="dop" class="col-sm-4 col-form-label
+                          form-label">Date of Birth</label>
+                      <div class="col-md-8 col-12">
+                        <input type="date" name="dob" class="form-control" placeholder="Date of Birth" id="dob" required="">
+                      </div>
+                    </div>
+
+                    <!-- row -->
+                    <div class="mb-3 row">
+                      <label for="dop" class="col-sm-4 col-form-label
+                          form-label">Date of Joining Institute</label>
+                      <div class="col-md-8 col-12">
+                        <input type="date" name="joiningdate" class="form-control" placeholder="Joining Date" id="Joining" required="">
+                      </div>
+                    </div>
+                    <!-- row -->
+                    <div class="mb-3 row">
+                      <label for="experianceyear" class="col-sm-4 col-form-label
+                          form-label">Experience at DY Institute</label>
+                      <div class="col-md-8 col-12">
+                        <input type="number" class="form-control" name="expyears" placeholder="Experience (in Years)" id="Experience" required="">
+                      </div>
+                    </div>
+                    <!-- row -->
+                    <div class="mb-3 row">
+                      <label for="experianceyear" class="col-sm-4 col-form-label
+                          form-label">Experience other than DY Institute</label>
+                      <div class="col-md-8 col-12">
+                        <input type="number" class="form-control" name="ndyexpyears" placeholder="Experience (in Years)" id="Experience" required="">
+                      </div>
+                    </div>
+                  
+                    <!-- row -->
+
+                    <div class="mb-3 row">
+                      <label for="yearofappraisel" class="col-sm-4 col-form-label
+                          form-label">Year of Appraisel</label>
+                      <div class="col-sm-8 mb-3 mb-lg-0">
+                        
+                      <select name="yearofappraisel" id="yearofappraisel" class="form-control" required="">
+                        <option value="">Year of Appraisel</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                        <option value="2027">2027</option>
+                        <option value="2028">2028</option>
+                        <option value="2029">2029</option>
+                      </select>
+                      </div>
+                    </div>
+                    
+                     <!-- row -->
+
+                    <div class="mb-3 row">
+                      <input type="submit" class="w-50 ml-3 btn btn-primary" role="submit" value="Submit">
+                    </div>
+                  
+                  </form>
+                </div>
+              </div>
+            </div>
+                </div>
+            </div>
+        </div>
+   </section>
+          {% else %}
+            <h3>Unkonwn is {{user.username}} ...!</h3>
+          {% endif %}
+    {% endif %}
+    {% endblock content %}
