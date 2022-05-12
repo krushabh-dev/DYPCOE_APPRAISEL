@@ -19,6 +19,7 @@ urlpatterns = [
     path('forms/formthree',views.moreformthree,name='IIformthree'),
     path('forms/formfour',views.moreformfour,name='IIformfour'),
     path('forms/formfive',views.moreformfive,name='IIformfive'),
+    path('forms/formsix',views.moreformsix,name='IIformsix'),
     path('pages/hod',views.hod,name='hod'),
     path('pages/fetchprofile/<str:emailid>',views.fetchprofile,name='fetchprofile'),
     path('pages/fetchformone/<str:emailid>',views.fetchformone,name='fetchformone'),
