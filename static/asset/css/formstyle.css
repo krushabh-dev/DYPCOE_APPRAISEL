@@ -58,4 +58,8 @@ label.form-label {
     height: 65px !important;
 }
 
-
+.appr-heading {
+    padding-top: 2rem;
+    font-size: 3rem;
+    font-family: monospace;
+}
