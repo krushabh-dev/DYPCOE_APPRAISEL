@@ -535,6 +535,36 @@ def moreformfive(request):
 
     return render(request, 'app/dashboard/forms/more/researchconsultancy.html')
 
+def moreformsix(request):
+    if request.method == "POST":
+        email = request.user.email
+        currentclass = request.POST['currentclass']
+        division = request.POST['division']
+        subjectname = request.POST['subjectname']
+        numberoflectures = request.POST['numberoflectures']
+        scoreclaimedbyfaculty = request.POST['scoreclaimedbyfaculty']
+        collpolllink = request.POST['collpolllink']
+
+        infodata = FormOne(
+            email = email,
+            currentclass = currentclass,
+            division = division,
+            subjectname = subjectname,
+            numberoflectures = numberoflectures,
+            scoreclaimedbyfaculty = scoreclaimedbyfaculty,
+            collpolllink = collpolllink
+        )
+        
+        infodata.save()
+
+        FormProgressData = FormProgress.objects.get(email = email)
+        FormProgressData.FormOne = "Completed"
+        FormProgressData.save()
+        #After Completion of form we are redirected to homepage
+        return redirect('home')
+
+    return render(request, 'app/dashboard/forms/more/Faculty_Value.html')
+
 
 
 def myprofile(request):
