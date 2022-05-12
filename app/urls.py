@@ -21,6 +21,7 @@ urlpatterns = [
     path('forms/formfive',views.moreformfive,name='IIformfive'),
     path('forms/formsix',views.moreformsix,name='IIformsix'),
     path('pages/hod',views.hod,name='hod'),
+    path('about',views.credits,name='credits'),
     path('pages/fetchprofile/<str:emailid>',views.fetchprofile,name='fetchprofile'),
     path('pages/fetchformone/<str:emailid>',views.fetchformone,name='fetchformone'),
     path('pages/fetchformtwo/<str:emailid>',views.fetchformtwo,name='fetchformtwo'),
