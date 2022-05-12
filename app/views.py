@@ -25,6 +25,9 @@ def logout_view(request):
 def welcome(request):
     return render(request, 'app/welcome.html')
 
+def credits(request):
+    return render(request, 'app/credits.html')
+
 def profileupdate(request):
     if request.method == "POST":
         pron = request.POST['pron']
