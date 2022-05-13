@@ -24,14 +24,14 @@ from django.db import models
 
 class FacultyMembers(models.Model):
     name = models.CharField(max_length=200)
-    email = models.EmailField(max_length=200)
+    email = models.EmailField(max_length=200, default='example@example.in')
     claimedscore = models.IntegerField()
     givenscore = models.IntegerField()
     performace = models.CharField(max_length=20)
     formstatus = models.IntegerField()
-    FacultyID = models.CharField(max_length=20)
-    nameofInstitute = models.CharField(max_length=200)
-    nameofDepartment = models.CharField(max_length=200)
+    FacultyID = models.CharField(max_length=20, default='FACULTYID')
+    nameofInstitute = models.CharField(max_length=200, default="DYP")
+    nameofDepartment = models.CharField(max_length=200, default='Information Technology')
     lastupdated = models.CharField(max_length=20)
 
     def __str__(self):
@@ -159,6 +159,7 @@ class FacultyInfo(models.Model):
 
 class BFormProgress(models.Model):
     email = models.EmailField(max_length=200)
+    basicprofile = models.CharField(max_length=20, default="incomplete")
     FormOne = models.CharField(max_length=20)
     FormTwo = models.CharField(max_length=20)
     FormThree = models.CharField(max_length=20)
