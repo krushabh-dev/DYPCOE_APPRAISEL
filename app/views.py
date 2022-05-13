@@ -8,12 +8,18 @@ from django.contrib.auth import authenticate, login
 from app.models import FacultyMembers
 from app.models import FacultyInfo
 from app.models import FormProgress
+from app.models import BFormProgress
 from app.models import FormSix
 from app.models import FormFive
 from app.models import FormFour
 from app.models import FormThree
 from app.models import FormTwo
 from app.models import FormOne
+from app.models import BformFive
+from app.models import BformFour
+from app.models import BformThree
+from app.models import BformThreeB
+from app.models import BformTwo
 from django.contrib.auth import logout
 from django.shortcuts import redirect
 today = date.today()
@@ -421,27 +427,27 @@ def moreformone(request):
 def moreformtwo(request):
     if request.method == "POST":
         email = request.user.email
-        currentclass = request.POST['currentclass']
-        division = request.POST['division']
-        subjectname = request.POST['subjectname']
-        numberoflectures = request.POST['numberoflectures']
-        scoreclaimedbyfaculty = request.POST['scoreclaimedbyfaculty']
-        collpolllink = request.POST['collpolllink']
+        nameofpaper = request.POST['nameofpaper']
+        nameofjournal = request.POST['nameofjournal']
+        journallink = request.POST['journallink']
+        paperlink = request.POST['paperlink']
+        totalmarks = request.POST['totalmarks']
+        fclaimedmarks = request.POST['fclaimedmarks']
 
-        infodata = FormOne(
+        infodata = BformTwo(
             email = email,
-            currentclass = currentclass,
-            division = division,
-            subjectname = subjectname,
-            numberoflectures = numberoflectures,
-            scoreclaimedbyfaculty = scoreclaimedbyfaculty,
-            collpolllink = collpolllink
+            nameofpaper = nameofpaper,
+            nameofjournal = nameofjournal,
+            journallink = journallink,
+            paperlink = paperlink,
+            totalmarks = totalmarks,
+            fclaimedmarks = fclaimedmarks
         )
 
         infodata.save()
 
-        FormProgressData = FormProgress.objects.get(email = email)
-        FormProgressData.FormOne = "Completed"
+        FormProgressData = BFormProgress.objects.get(email = email)
+        FormProgressData.FormTwo = "Completed"
         FormProgressData.save()
         #After Completion of form we are redirected to homepage
         return redirect('home')
@@ -451,27 +457,27 @@ def moreformtwo(request):
 def moreformthree(request):
     if request.method == "POST":
         email = request.user.email
-        currentclass = request.POST['currentclass']
-        division = request.POST['division']
-        subjectname = request.POST['subjectname']
-        numberoflectures = request.POST['numberoflectures']
-        scoreclaimedbyfaculty = request.POST['scoreclaimedbyfaculty']
-        collpolllink = request.POST['collpolllink']
+        nameofpaper = request.POST['nameofpaper']
+        nameofjournal = request.POST['nameofjournal']
+        paperlink = request.POST['paperlink']
+        journallink = request.POST['journallink']
+        fclaimedmarks = request.POST['fclaimedmarks']
+        totalmarks = request.POST['totalmarks']
 
-        infodata = FormOne(
+        infodata = BformTwo(
             email = email,
-            currentclass = currentclass,
-            division = division,
-            subjectname = subjectname,
-            numberoflectures = numberoflectures,
-            scoreclaimedbyfaculty = scoreclaimedbyfaculty,
-            collpolllink = collpolllink
+            nameofpaper = nameofpaper,
+            nameofjournal = nameofjournal,
+            paperlink = paperlink,
+            journallink =journallink,
+            fclaimedmarks =  fclaimedmarks,
+            totalmarks =  totalmarks,
         )
         
         infodata.save()
 
-        FormProgressData = FormProgress.objects.get(email = email)
-        FormProgressData.FormOne = "Completed"
+        FormProgressData = BFormProgress.objects.get(email = email)
+        FormProgressData.FormThree = "Completed"
         FormProgressData.save()
         #After Completion of form we are redirected to homepage
         return redirect('home')
@@ -481,27 +487,25 @@ def moreformthree(request):
 def moreformfour(request):
     if request.method == "POST":
         email = request.user.email
-        currentclass = request.POST['currentclass']
-        division = request.POST['division']
-        subjectname = request.POST['subjectname']
-        numberoflectures = request.POST['numberoflectures']
-        scoreclaimedbyfaculty = request.POST['scoreclaimedbyfaculty']
-        collpolllink = request.POST['collpolllink']
+        Econtent = request.POST['Econtent']
+        UploadEvidance = request.POST['UploadEvidance']
+        UploadCopy = request.POST['UploadCopy']
+        fclaimedmarks = request.POST['fclaimedmarks']
+        totalmarks = request.POST['totalmarks']
 
-        infodata = FormOne(
+        infodata = BformThreeB(
             email = email,
-            currentclass = currentclass,
-            division = division,
-            subjectname = subjectname,
-            numberoflectures = numberoflectures,
-            scoreclaimedbyfaculty = scoreclaimedbyfaculty,
-            collpolllink = collpolllink
+            Econtent = Econtent,
+            UploadEvidance = UploadEvidance,
+            UploadCopy = UploadCopy,
+            fclaimedmarks = fclaimedmarks,
+            totalmarks = totalmarks,
         )
         
         infodata.save()
 
-        FormProgressData = FormProgress.objects.get(email = email)
-        FormProgressData.FormOne = "Completed"
+        FormProgressData = BFormProgress.objects.get(email = email)
+        FormProgressData.FormFour = "Completed"
         FormProgressData.save()
         #After Completion of form we are redirected to homepage
         return redirect('home')
@@ -511,27 +515,43 @@ def moreformfour(request):
 def moreformfive(request):
     if request.method == "POST":
         email = request.user.email
-        currentclass = request.POST['currentclass']
-        division = request.POST['division']
-        subjectname = request.POST['subjectname']
-        numberoflectures = request.POST['numberoflectures']
-        scoreclaimedbyfaculty = request.POST['scoreclaimedbyfaculty']
-        collpolllink = request.POST['collpolllink']
+        NoOfPHDGuided = request.POST['NoOfPHDGuided']
+        NoOfPGguided = request.POST['NoOfPGguided']
+        NoOfBEPrjGuided = request.POST['NoOfBEPrjGuided']
+        ResearchProjectCompleted = request.POST['ResearchProjectCompleted']
+        InProdDevelopment = request.POST['InProdDevelopment']
+        EvidanceTwo = request.POST['EvidanceTwo']
+        EvidanceThree = request.POST['EvidanceThree']
+        EvidanceFour = request.POST['EvidanceFour']
+        EvidanceOne = request.POST['EvidanceOne']
+        PaperPublishedwithIndustry = request.POST['PaperPublishedwithIndustry']
+        EditorialBoard = request.POST['EditorialBoard']
+        Consultancy = request.POST['Consultancy']
+        fclaimedmarks = request.POST['fclaimedmarks']
+        totalmarks = request.POST['totalmarks']
 
-        infodata = FormOne(
+        infodata = BformFour(
             email = email,
-            currentclass = currentclass,
-            division = division,
-            subjectname = subjectname,
-            numberoflectures = numberoflectures,
-            scoreclaimedbyfaculty = scoreclaimedbyfaculty,
-            collpolllink = collpolllink
+            NoOfPHDGuided = NoOfPHDGuided,
+            NoOfPGguided = NoOfPGguided,
+            NoOfBEPrjGuided = NoOfBEPrjGuided,
+            ResearchProjectCompleted = ResearchProjectCompleted,
+            InProdDevelopment = InProdDevelopment,
+            Consultancy = Consultancy,
+            EditorialBoard = EditorialBoard,
+            PaperPublishedwithIndustry = PaperPublishedwithIndustry,
+            EvidanceOne = EvidanceOne,
+            EvidanceTwo = EvidanceTwo,
+            EvidanceThree = EvidanceThree,
+            EvidanceFour = EvidanceFour,
+            fclaimedmarks = fclaimedmarks,
+            totalmarks = totalmarks,
         )
         
         infodata.save()
 
-        FormProgressData = FormProgress.objects.get(email = email)
-        FormProgressData.FormOne = "Completed"
+        FormProgressData = BFormProgress.objects.get(email = email)
+        FormProgressData.FormFOur = "Completed"
         FormProgressData.save()
         #After Completion of form we are redirected to homepage
         return redirect('home')
@@ -541,27 +561,39 @@ def moreformfive(request):
 def moreformsix(request):
     if request.method == "POST":
         email = request.user.email
-        currentclass = request.POST['currentclass']
-        division = request.POST['division']
-        subjectname = request.POST['subjectname']
-        numberoflectures = request.POST['numberoflectures']
-        scoreclaimedbyfaculty = request.POST['scoreclaimedbyfaculty']
-        collpolllink = request.POST['collpolllink']
+        EOrganised = request.POST['EOrganised']
+        EAttended = request.POST['EAttended']
+        UploadReport = request.POST['UploadReport']
+        UploadCertificate = request.POST['UploadCertificate']
+        NameEvent = request.POST['NameEvent']
+        UploadEventCertificate = request.POST['UploadEventCertificate']
+        NPTELName = request.POST['NPTELName']
+        NPTELCert = request.POST['NPTELCert']
+        IEnchanchedQualification = request.POST['IEnchanchedQualification']
+        IEnchanchedQualificationProof = request.POST['IEnchanchedQualificationProof']
+        fclaimedmarks = request.POST['fclaimedmarks']
+        totalmarks = request.POST['totalmarks']
 
-        infodata = FormOne(
+        infodata = BformFive(
             email = email,
-            currentclass = currentclass,
-            division = division,
-            subjectname = subjectname,
-            numberoflectures = numberoflectures,
-            scoreclaimedbyfaculty = scoreclaimedbyfaculty,
-            collpolllink = collpolllink
+            EOrganised = EOrganised,
+            EAttended = EAttended,
+            UploadReport = UploadReport,
+            UploadCertificate = UploadCertificate,
+            NameEvent = NameEvent,
+            IEnchanchedQualificationProof = IEnchanchedQualificationProof,
+            IEnchanchedQualification = IEnchanchedQualification,
+            UploadEventCertificate = UploadEventCertificate,
+            NPTELName = NPTELName,
+            NPTELCert = NPTELCert,
+            fclaimedmarks = fclaimedmarks,
+            totalmarks = totalmarks,
         )
         
         infodata.save()
 
-        FormProgressData = FormProgress.objects.get(email = email)
-        FormProgressData.FormOne = "Completed"
+        FormProgressData = BFormProgress.objects.get(email = email)
+        FormProgressData.FormSix = "Completed"
         FormProgressData.save()
         #After Completion of form we are redirected to homepage
         return redirect('home')
@@ -716,7 +748,19 @@ def signup(request):
             NetCoutFormFilled = 0
         )
 
+        BFormProgressdata = BFormProgress(
+            email = email,
+            FormOne = "Incomplete",
+            FormTwo = "Incomplete",
+            FormThree = "Incomplete",
+            FormFour = "Incomplete",
+            FormFive = "Incomplete",
+            FormSix = "Incomplete",
+            NetCoutFormFilled = 0
+        )
+
         FormProgressdata.save()
+        BFormProgressdata.save()
 
         return redirect('signin')
 
