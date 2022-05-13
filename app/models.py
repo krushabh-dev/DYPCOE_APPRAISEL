@@ -157,6 +157,21 @@ class FacultyInfo(models.Model):
     def __str__(self):
         return self.FacultyID       
 
+class BFormProgress(models.Model):
+    email = models.EmailField(max_length=200)
+    FormOne = models.CharField(max_length=20)
+    FormTwo = models.CharField(max_length=20)
+    FormThree = models.CharField(max_length=20)
+    FormFour = models.CharField(max_length=20)
+    FormFive = models.CharField(max_length=20)
+    FormSix = models.CharField(max_length=20)
+    NetCoutFormFilled = models.IntegerField()
+
+    def __str__(self):
+        return self.FacultyID
+
+      
+
 class BformTwo(models.Model):
     email = models.EmailField()
     nameofpaper = models.CharField(max_length=200)
