@@ -150,15 +150,14 @@ def home2(request):
     if request.user.is_authenticated:
         # filleddata = FormProgress.objects.all()
         filleddata = BFormProgress.objects.get(email= request.user.email)
-        if filleddata.basicprofile == "Completed":
-            if request.user.first_name == "FACULTY":    
-                context = {
-                    'filleddata': filleddata,
-                    'user': request.user
-                }
-                return render(request, 'app/dashboard/hometwo.html', context)
-            elif request.user.first_name == "HOD":
-                return redirect('hod')
+        if request.user.first_name == "FACULTY":    
+            context = {
+                'filleddata': filleddata,
+                'user': request.user
+            }
+            return render(request, 'app/dashboard/hometwo.html', context)
+        elif request.user.first_name == "HOD":
+            return redirect('hod')
         else:
           return redirect('signin')
     else:
@@ -750,6 +749,7 @@ def signup(request):
 
         BFormProgressdata = BFormProgress(
             email = email,
+            basicprofile = "Inompleted",
             FormOne = "Incomplete",
             FormTwo = "Incomplete",
             FormThree = "Incomplete",
