@@ -149,7 +149,7 @@ def home(request):
 def home2(request):
     if request.user.is_authenticated:
         # filleddata = FormProgress.objects.all()
-        filleddata = FormProgress.objects.get(email= request.user.email)
+        filleddata = BFormProgress.objects.get(email= request.user.email)
         if filleddata.basicprofile == "Completed":
             if request.user.first_name == "FACULTY":    
                 context = {
