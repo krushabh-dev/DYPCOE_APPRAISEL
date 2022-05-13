@@ -1,6 +1,8 @@
 {% extends 'app/dashboard/main.html' %}
 {% block content %}
 
+{% load static %}
+
 <section id="maindivarea">
         <div class="container mt-n22 px-6">
             <h2 class="text-light h1 appr-heading">APPRAISEL SYSTEM v1.3.78</h2>
@@ -8,4 +10,70 @@
         </div>
    </section>
 
+   <section id="projectContributors">
+
+       <div class="project-credits">
+           <div class="container">
+               <div class="row">
+                   <div class="col-md-12">
+                    <h2>Contributions</h2>
+                   </div>
+                   <div class="col-md-6 mb-3">
+                    <div class="card">
+                        <img src={% static 'asset/creditsimg/ndkalesir.jpeg' %} width="250" height="250" class="p-2 align-self-center" alt="navnath">
+                        <div class="card-body">
+                          <p class="card-text">
+                              <h3 class="card-title">
+                                  Mr. Navnath Kale
+                              </h3>
+                              <h4>Project Management - Faculty</h4>
+                              <h5 class="card-title-2">
+                                Associate Professor, <span><i>D. Y. Patil College of Engineering</i></span>
+                              </h5>
+            
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-12 my-5">
+                        <h2>Project Developers</h2>
+                       </div>
+                   <div class="col-md-6">
+                    <div class="card">
+                        <img src={% static 'asset/creditsimg/krushabh.jpeg' %} width="250" height="250" class="p-2 align-self-center" alt="krushabh">
+                        <div class="card-body">
+                          <p class="card-text">
+                              <h3 class="card-title">
+                                  Krushabhsingh Suryawanshi
+                              </h3>
+                              <h5 class="card-title-2">
+                                  Project Head and Developer
+                              </h5>
+            
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                      <div class="col-md-6">
+                        <div class="card">
+                            <img src={% static 'asset/creditsimg/ameya.jpg' %} width="250" height="250" class="p-2 align-self-center" alt="ameya">
+                            <div class="card-body">
+                              <p class="card-text">
+                                  <h3 class="card-title">
+                                      Ameya Kannurkar
+                                  </h3>
+                                  <h5 class="card-title-2">
+                                      Project Associate
+                                  </h5>
+                
+                              </p>
+                            </div>
+                          </div>                
+                      </div>
+                   
+               </div>
+           </div>
+       
+       </div>
+   </section>
 {% endblock content %}
