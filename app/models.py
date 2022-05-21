@@ -2,26 +2,6 @@ from statistics import mode
 from unicodedata import name
 from django.db import models
 
-# Create your models here.
-# class FormOne(models.Model):
-#     Class_CHOICES = (
-#         ('FE', 'First Year'),
-#         ('SE', 'Second Year'),
-#         ('TE', 'Third Year'),
-#         ('BE', 'Final Year'),
-#     )
-#     Division_CHOICES = (
-#         ('A', 'A'),
-#         ('B', 'B'),
-#         ('C', 'C'),
-#     )
-#     class_student = models.CharField(max_length=4, choices=Class_CHOICES)
-#     division_student = models.CharField(max_length=4, choices=Division_CHOICES)
-#     subject = models.CharField(max_length=40)
-#     lectures_taught = models.IntegerField(max_length=4)
-#     scoreclaimed = models.IntegerField(max_length=4)
-#     collpolllink = models.CharField(max_length=150)
-
 class FacultyMembers(models.Model):
     name = models.CharField(max_length=200)
     email = models.EmailField(max_length=200, default='example@example.in')
@@ -160,7 +140,9 @@ class FacultyInfo(models.Model):
 class BFormProgress(models.Model):
     email = models.EmailField(max_length=200)
     basicprofile = models.CharField(max_length=20, default="incomplete")
-    FormOne = models.CharField(max_length=20)
+    FormOneA = models.CharField(max_length=20)
+    FormOneB = models.CharField(max_length=20, default="incomplete")
+    FormOneC = models.CharField(max_length=20, default="incomplete")
     FormTwo = models.CharField(max_length=20)
     FormThree = models.CharField(max_length=20)
     FormFour = models.CharField(max_length=20)
@@ -171,7 +153,48 @@ class BFormProgress(models.Model):
     def __str__(self):
         return self.FacultyID
 
-      
+class BformOneA(models.Model):
+    email = models.EmailField()
+    ptmeet = models.CharField(max_length=200)
+    inductionProgram = models.CharField(max_length=200)
+    defaulterCoordinator = models.CharField(max_length=200)
+    internalExam = models.CharField(max_length=200)
+    guestLecture = models.CharField(max_length=200)
+    industrialVisit = models.CharField(max_length=200)
+    timeTableCoordinator = models.CharField(max_length=200)
+    nbaNaacCoordi = models.CharField(max_length=200)
+    deptAcademic = models.CharField(max_length=200)
+    tpoCordinate = models.CharField(max_length=200)
+    fclaimedmarks =  models.IntegerField()
+    totalmarks =  models.IntegerField()
+
+    def __str__(self):
+        return self.email
+
+class BformOneB(models.Model):
+    email = models.EmailField()
+    interviewCoordinator = models.CharField(max_length=200)
+    annualEvent = models.CharField(max_length=200)
+    admissionProcess = models.CharField(max_length=200)
+    ceo = models.CharField(max_length=200)
+    guestLecture = models.CharField(max_length=200)
+    nbaNaacCoordi = models.CharField(max_length=200)
+    tpoCordinate = models.CharField(max_length=200)
+    fclaimedmarks =  models.IntegerField()
+    totalmarks =  models.IntegerField()
+
+    def __str__(self):
+        return self.email
+
+class BformOneC(models.Model):
+    email = models.EmailField()
+    mediaPublicity = models.CharField(max_length=200)
+    admission = models.CharField(max_length=200)
+    socialWelfare = models.CharField(max_length=200)
+    fclaimedmarks =  models.IntegerField()
+    totalmarks =  models.IntegerField()
+    def __str__(self):
+        return self.email
 
 class BformTwo(models.Model):
     email = models.EmailField()
