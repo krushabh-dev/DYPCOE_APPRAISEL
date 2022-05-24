@@ -1,6 +1,6 @@
 from . import views
 from django.urls import path, include
-
+  
 urlpatterns = [
     path('',views.welcome,name='welcome'),
     path('signin/',views.signin,name='signin'),
@@ -15,9 +15,9 @@ urlpatterns = [
     path('pages/formfive',views.formfive,name='formfive'),
     path('pages/formsix',views.formsix,name='formsix'),
     path('forms/formone',views.moreformone,name='IIformone'),
-    path('forms/formone/one',views.moreformtwo,name='IIformtwo'),
-    path('forms/formone/two',views.moreformtwo,name='IIformtwo'),
-    path('forms/formone/three',views.moreformtwo,name='IIformtwo'),
+    path('forms/formone/one',views.moreformonea,name='IIformtwo'),
+    path('forms/formone/two',views.moreformoneb,name='IIformtwo'),
+    path('forms/formone/three',views.moreformonec,name='IIformtwo'),
     path('forms/formtwo',views.moreformtwo,name='IIformtwo'),
     path('forms/formthree',views.moreformthree,name='IIformthree'),
     path('forms/formfour',views.moreformfour,name='IIformfour'),
