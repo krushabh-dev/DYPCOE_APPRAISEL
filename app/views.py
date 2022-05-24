@@ -1,6 +1,7 @@
 from binascii import Incomplete
 import email
 from datetime import date
+import imp
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.models import User
 from django.contrib import messages
@@ -20,6 +21,9 @@ from app.models import BformFour
 from app.models import BformThree
 from app.models import BformThreeB
 from app.models import BformTwo
+from app.models import BformOneA
+from app.models import BformOneB
+from app.models import BformOneC
 from django.contrib.auth import logout
 from django.shortcuts import redirect
 today = date.today()
@@ -176,7 +180,6 @@ def hod(request):
             context = {
                 'facdata': facdata
             }
-
 
             return render(request, 'app/dashboard/hod_welcome.html', context)
         else:
@@ -393,35 +396,109 @@ def formsix(request):
         return redirect('home')
 
     return render(request, 'app/dashboard/forms/feedback_analysis.html')
-
+ 
 def moreformone(request):
+    return render(request, 'app/dashboard/forms/more/faculty_contribution.html')
+ 
+def moreformonea(request):
     if request.method == "POST":
         email = request.user.email
-        currentclass = request.POST['currentclass']
-        division = request.POST['division']
-        subjectname = request.POST['subjectname']
-        numberoflectures = request.POST['numberoflectures']
-        scoreclaimedbyfaculty = request.POST['scoreclaimedbyfaculty']
-        collpolllink = request.POST['collpolllink']
+        ptmeet = request.POST['ptmeet']
+        inductionProgram = request.POST['inductionProgram']
+        defaulterCoordinator = request.POST['defaulterCoordinator']
+        internalExam = request.POST['internalExam']
+        guestLecture = request.POST['guestLecture']
+        industrialVisit = request.POST['industrialVisit']
+        timeTableCoordinator = request.POST['timeTableCoordinator']
+        nbaNaacCoordi = request.POST['nbaNaacCoordi']
+        deptAcademic = request.POST['deptAcademic']
+        tpoCordinate = request.POST['tpoCordinate']
+        totalmarks = request.POST['totalmarks']
+        fclaimedmarks = request.POST['fclaimedmarks']
 
-        infodata = FormOne(
+        infodata = BformOneA(
             email = email,
-            currentclass = currentclass,
-            division = division,
-            subjectname = subjectname,
-            numberoflectures = numberoflectures,
-            scoreclaimedbyfaculty = scoreclaimedbyfaculty,
-            collpolllink = collpolllink
+            ptmeet = ptmeet,
+            inductionProgram = inductionProgram,
+            defaulterCoordinator = defaulterCoordinator,
+            internalExam = internalExam,
+            guestLecture = guestLecture,
+            industrialVisit = industrialVisit,
+            timeTableCoordinator = timeTableCoordinator,
+            nbaNaacCoordi = nbaNaacCoordi,
+            deptAcademic = deptAcademic,
+            tpoCordinate = tpoCordinate,
+            totalmarks = totalmarks,
+            fclaimedmarks = fclaimedmarks
         )
         infodata.save()
 
-        FormProgressData = FormProgress.objects.get(email = email)
-        FormProgressData.FormOne = "Completed"
+        FormProgressData = BFormProgress.objects.get(email = email)
+        FormProgressData.FormOneA = "Completed"
         FormProgressData.save()
-        #After Completion of form we are redirected to homepage
         return redirect('home')
 
-    return render(request, 'app/dashboard/forms/more/faculty_contribution.html')
+    return render(request, 'app/dashboard/forms/partb-1/departmentLevel.html')
+ 
+def moreformonec(request):
+    if request.method == "POST":
+        email = request.user.email
+        admissionProcess = request.POST['admissionProcess']
+        socialWelfare = request.POST['socialWelfare']
+        mediaPublicity = request.POST['mediaPublicity']
+        totalmarks = request.POST['totalmarks']
+        fclaimedmarks = request.POST['fclaimedmarks']
+
+        infodata = BformOneB(
+            email = email,
+            admissionProcess= admissionProcess,
+            mediaPublicity = mediaPublicity,
+            socialWelfare =socialWelfare,
+            totalmarks = totalmarks,
+            fclaimedmarks = fclaimedmarks
+        )
+        infodata.save()
+
+        FormProgressData = BFormProgress.objects.get(email = email)
+        FormProgressData.FormOneB = "Completed"
+        FormProgressData.save()
+        return redirect('home')
+
+    return render(request, 'app/dashboard/forms/partb-1/campusLevel.html')
+ 
+def moreformoneb(request):
+    if request.method == "POST":
+        email = request.user.email
+        interviewCoordinator = request.POST['interviewCoordinator']
+        annualEvent = request.POST['annualEvent']
+        admissionProcess = request.POST['admissionProcess']
+        ceo = request.POST['ceo']
+        guestLecture = request.POST['guestLecture']
+        nbaNaacCoordi = request.POST['nbaNaacCoordi']
+        tpoCordinate = request.POST['tpoCordinate']
+        totalmarks = request.POST['totalmarks']
+        fclaimedmarks = request.POST['fclaimedmarks']
+
+        infodata = BformOneB(
+            email = email,
+            interviewCoordinator = interviewCoordinator,
+            annualEvent = annualEvent,
+            admissionProcess = admissionProcess,
+            ceo = ceo,
+            guestLecture = guestLecture,
+            nbaNaacCoordi = nbaNaacCoordi,
+            tpoCordinate = tpoCordinate,
+            totalmarks = totalmarks,
+            fclaimedmarks = fclaimedmarks
+        )
+        infodata.save()
+
+        FormProgressData = BFormProgress.objects.get(email = email)
+        FormProgressData.FormOneB = "Completed"
+        FormProgressData.save()
+        return redirect('home')
+
+    return render(request, 'app/dashboard/forms/partb-1/instituteLevel.html')
 
 def moreformtwo(request):
     if request.method == "POST":
@@ -452,7 +529,7 @@ def moreformtwo(request):
         return redirect('home')
 
     return render(request, 'app/dashboard/forms/more/randfaculty_contribution.html')
-
+ 
 def moreformthree(request):
     if request.method == "POST":
         email = request.user.email
@@ -463,7 +540,7 @@ def moreformthree(request):
         fclaimedmarks = request.POST['fclaimedmarks']
         totalmarks = request.POST['totalmarks']
 
-        infodata = BformTwo(
+        infodata = BformThree(
             email = email,
             nameofpaper = nameofpaper,
             nameofjournal = nameofjournal,
@@ -746,21 +823,23 @@ def signup(request):
             FormEight = "Incomplete",
             NetCoutFormFilled = 0
         )
-
-        BFormProgressdata = BFormProgress(
-            email = email,
-            basicprofile = "Inompleted",
-            FormOne = "Incomplete",
-            FormTwo = "Incomplete",
-            FormThree = "Incomplete",
-            FormFour = "Incomplete",
-            FormFive = "Incomplete",
-            FormSix = "Incomplete",
-            NetCoutFormFilled = 0
-        )
-
         FormProgressdata.save()
-        BFormProgressdata.save()
+
+        if(authority == "FACULTY"):
+            BFormProgressdata = BFormProgress(
+                email = email,
+                basicprofile = "Inompleted",
+                FormOneA = "Incomplete",
+                FormOneB = "Incomplete",
+                FormOneC = "Incomplete",
+                FormTwo = "Incomplete",
+                FormThree = "Incomplete",
+                FormFour = "Incomplete",
+                FormFive = "Incomplete",
+                FormSix = "Incomplete",
+                NetCoutFormFilled = 0
+            )
+            BFormProgressdata.save()
 
         return redirect('signin')
 
