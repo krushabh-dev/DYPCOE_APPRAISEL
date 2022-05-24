@@ -37,7 +37,7 @@ def welcome(request):
 
 def credits(request):
     return render(request, 'app/credits.html')
-
+ 
 def profileupdate(request):
     if request.method == "POST":
         pron = request.POST['pron']
@@ -192,10 +192,12 @@ def fetchprofile(request, emailid):
         # filleddata = FormProgress.objects.all()
         facdata = FacultyInfo.objects.get(email = emailid)
         filleddata = FormProgress.objects.get(email= emailid)
+        Bfilleddata = BFormProgress.objects.get(email= emailid)
         if filleddata.basicprofile == "Completed":
             context = {
                 'filleddata': filleddata,
-                'facultyinfodata': facdata
+                'bfilleddata': Bfilleddata,
+                'facultyinfodata': facdata,
             }
             return render(request, 'app/dashboard/facultyinfo.html', context)
         else:
