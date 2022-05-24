@@ -1,0 +1,144 @@
+<!-- teaching_and_load_assesment.html -->
+
+{% extends 'app/dashboard/main.html' %}
+{% block content %}
+
+<section id="maindivarea">
+        <div class="container mt-n22 px-6">
+            
+                <form class="mt-4" method="post" action="{% url 'formone' %}">
+                  {% csrf_token %}
+                  <div class="row">
+                  <div class="col-md-12">
+                      <div class="card">
+                <!-- card body -->
+                <div class="card-body">
+                  <div class=" mb-6">
+                    <h4 class="mb-1">Department Level Faculty Contribution</h4>
+                  </div>
+                  <div>
+                    <!-- border -->
+
+                      <!-- row -->
+                      <div class="mb-3 row">
+                        <label for="position" class="col-sm-4 col-form-label
+                            form-label">PT Meeting</label>
+                        <div class="col-md-8 col-12">
+                          <input type="file" class="form-control" placeholder="PT Meeting" name="ptmeet" id="ptmeet" required="">
+                        </div>
+                      </div>
+                      
+                      <!-- row -->
+                      <div class="mb-3 row">
+                        <label for="position" class="col-sm-4 col-form-label
+                            form-label">Induction Program</label>
+                        <div class="col-md-8 col-12">
+                          <input type="file"class="form-control" placeholder="Induction Program" name="inductionProgram" id="inductionProgram" required="">
+                        </div>
+                      </div>
+                      
+                      <!-- row -->
+                      <div class="mb-3 row">
+                        <label for="position" class="col-sm-4 col-form-label
+                            form-label">Defaulter Co-ordinator</label>
+                        <div class="col-md-8 col-12">
+                          <input type="file"class="form-control" placeholder="Defaulter Co-ordinator" name="defaulterCoordinator" id="defaulterCoordinator" required="">
+                        </div>
+                      </div>
+                      
+                      <!-- row -->
+                      <div class="mb-3 row">
+                        <label for="position" class="col-sm-4 col-form-label
+                            form-label">Internal Exam</label>
+                        <div class="col-md-8 col-12">
+                          <input type="file"class="form-control" placeholder="Internal Exam" name="internalExam" id="internalExam" required="">
+                        </div>
+                      </div>
+                      
+                      <!-- row -->
+                      <div class="mb-3 row">
+                        <label for="position" class="col-sm-4 col-form-label
+                            form-label">Guest Lectures</label>
+                        <div class="col-md-8 col-12">
+                          <input type="file"class="form-control" placeholder="Guest Lectures" name="guestLecture" id="guestLecture" required="">
+                        </div>
+                      </div>
+                      
+                      <!-- row -->
+                      <div class="mb-3 row">
+                        <label for="position" class="col-sm-4 col-form-label
+                            form-label">Industrial Visit</label>
+                        <div class="col-md-8 col-12">
+                          <input type="file"class="form-control" placeholder="Industrial Visit" name="industrialVisit" id="industrialVisit" required="">
+                        </div>
+                      </div>
+                      
+                      <!-- row -->
+                      <div class="mb-3 row">
+                        <label for="position" class="col-sm-4 col-form-label
+                            form-label">Timetable Co-ordinator</label>
+                        <div class="col-md-8 col-12">
+                          <input type="file"class="form-control" placeholder="Timetable Co-ordinator" name="timeTableCoordinator" id="timeTableCoordinator" required="">
+                        </div>
+                      </div>
+                      
+                      <!-- row -->
+                      <div class="mb-3 row">
+                        <label for="position" class="col-sm-4 col-form-label
+                            form-label">Department NBA/NAAC </label>
+                        <div class="col-md-8 col-12">
+                          <input type="file"class="form-control" placeholder="Department NBA/NAAC " name="nbaNaacCoordi" id="nbaNaacCoordi" required="">
+                        </div>
+                      </div>
+                      
+                      <!-- row -->
+                      <div class="mb-3 row">
+                        <label for="position" class="col-sm-4 col-form-label
+                            form-label">Academic Co-ordintor</label>
+                        <div class="col-md-8 col-12">
+                          <input type="file"class="form-control" placeholder="Academic Co-ordintor" name="deptAcademic" id="deptAcademic" required="">
+                        </div>
+                      </div>
+                      
+                      <!-- row -->
+                      <div class="mb-3 row">
+                        <label for="position" class="col-sm-4 col-form-label
+                            form-label">TPO Co-ordinator</label>
+                        <div class="col-md-8 col-12">
+                          <input type="file"class="form-control" placeholder="TPO Co-ordinator" name="tpoCordinate" id="tpoCordinate" required="">
+                        </div>
+                      </div>
+
+                      <!-- row -->
+                      <div class="mb-3 row">
+                        <label for="position" class="col-sm-4 col-form-label
+                            form-label">Marks Claimed</label>
+                        <div class="col-md-3 col-12">
+                          <input type="number"class="form-control" placeholder="Claimed Marks" name="fclaimedmarks" id="fclaimedmarks" required="">
+                        </div>
+                        <div class="col-md-1">of</div>
+                        <div class="col-md-4 col-12">
+                          <input type="number"class="form-control" placeholder="Out of Marks" name="totalmarks" id="totalmarks" required="">
+                        </div>
+                      </div>
+
+                      <!-- row -->
+                      <div class="mb-3 row">
+                        <div class="col-md-12 col-12 text-center">
+                          <input type="submit" class="w-75 btn btn-primary" value="Save &amp; Next">
+                        </div>
+                      </div>
+                      
+                    
+                  </div>
+                </div>
+              </div>
+                  </div>
+                 
+                  </div>
+                </form>
+            
+        </div>
+   </section>
+
+{% endblock content %}
