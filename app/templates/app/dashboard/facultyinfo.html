@@ -1,5 +1,7 @@
-{% extends 'app/dashboard/main.html' %} {% load static %} {% block content %} {%
-if user.is_authenticated %}
+{% extends 'app/dashboard/main.html' %} 
+{% load static %} 
+{% block content %} 
+{% if user.is_authenticated %}
 
 <style>
   .j-three {
@@ -657,7 +659,6 @@ if user.is_authenticated %}
                     role="tabpanel"
                     aria-labelledby="headingTwo"
                   >
-                    <div class="panel-body">
                       <div class="panel-body">
                         <div class="form-a-part">
                           <!-- row -->
@@ -670,7 +671,7 @@ if user.is_authenticated %}
                               >
                                 <div>
                                   <h4 class="mb-0">
-                                    Teaching and Load Assessment
+                                    Faculty Contribution to Department
                                   </h4>
                                 </div>
                               </div>
@@ -680,7 +681,7 @@ if user.is_authenticated %}
                                   <span
                                     class="badge bg-success text-white px-2 py-1"
                                   >
-                                    {{filleddata.FormOne}}</span
+                                    {{bfilleddata.FormOneA}}</span
                                   >
                                 </p>
                                 <p class="mb-0 w-25">
@@ -706,7 +707,7 @@ if user.is_authenticated %}
                               >
                                 <div>
                                   <h4 class="mb-0">
-                                    Teaching and Load Assessment
+                                    Faculty Contribution to Institute
                                   </h4>
                                 </div>
                               </div>
@@ -716,7 +717,7 @@ if user.is_authenticated %}
                                   <span
                                     class="badge bg-success text-white px-2 py-1"
                                   >
-                                    {{filleddata.FormOne}}</span
+                                    {{bfilleddata.FormOneB}}</span
                                   >
                                 </p>
                                 <p class="mb-0 w-25">
@@ -732,9 +733,80 @@ if user.is_authenticated %}
                             </div>
                           </div>
 
+                          <!-- row -->
+                          <div class="card mt-4">
+                            <!-- card body -->
+                            <div class="card-body j-three">
+                              <!-- heading -->
+                              <div
+                                class="d-flex justify-content-between align-items-center mb-0"
+                              >
+                                <div>
+                                  <h4 class="mb-0">
+                                    Faculty Contribution to Campus
+                                  </h4>
+                                </div>
+                              </div>
+                              <!-- project number -->
+                              <div class="d-contents">
+                                <p class="fw-bold">
+                                  <span
+                                    class="badge bg-success text-white px-2 py-1"
+                                  >
+                                    {{bfilleddata.FormOneC}}</span
+                                  >
+                                </p>
+                                <p class="mb-0 w-25">
+                                  <span class="text-dark me-2"
+                                    ><a
+                                      href="/pages/fetchformone/{{filleddata.email}}"
+                                      class="p btn btn-outline-primary d-md-block small-btn-font"
+                                      >Review Submission</a
+                                    ></span
+                                  >
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- row -->
+                          <div class="card mt-4">
+                            <!-- card body -->
+                            <div class="card-body j-three">
+                              <!-- heading -->
+                              <div
+                                class="d-flex justify-content-between align-items-center mb-0"
+                              >
+                                <div>
+                                  <h4 class="mb-0">
+                                    Faculty Contribution to Campus
+                                  </h4>
+                                </div>
+                              </div>
+                              <!-- project number -->
+                              <div class="d-contents">
+                                <p class="fw-bold">
+                                  <span
+                                    class="badge bg-success text-white px-2 py-1"
+                                  >
+                                    {{bfilleddata.FormOneC}}</span
+                                  >
+                                </p>
+                                <p class="mb-0 w-25">
+                                  <span class="text-dark me-2"
+                                    ><a
+                                      href="/pages/fetchformone/{{filleddata.email}}"
+                                      class="p btn btn-outline-primary d-md-block small-btn-font"
+                                      >Review Submission</a
+                                    ></span
+                                  >
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                      
                         </div>
                       </div>
-                    </div>
                   </div>
                 </div>
               </div>
