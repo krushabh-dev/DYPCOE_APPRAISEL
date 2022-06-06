@@ -8,6 +8,7 @@ urlpatterns = [
     path('home/',views.home,name='home'),
     path('home2/',views.home2,name='home2'),
     path('myprofile/',views.myprofile,name='myprofile'),
+    path('fetchpdf/',views.fectchpdf,name='fetchpdf'),
     path('pages/formone',views.formone,name='formone'),
     path('pages/formtwo',views.formtwo,name='formtwo'),
     path('pages/formthree',views.formthree,name='formthree'),
@@ -26,6 +27,7 @@ urlpatterns = [
     path('pages/hod',views.hod,name='hod'),
     path('about',views.credits,name='credits'),
     path('pages/fetchprofile/<str:emailid>',views.fetchprofile,name='fetchprofile'),
+    path('pages/fetchpdf/<str:emailid>',views.fetchMainForm,name='fetchmainform'),
     path('pages/fetchformone/<str:emailid>',views.fetchformone,name='fetchformone'),
     path('pages/fetchformtwo/<str:emailid>',views.fetchformtwo,name='fetchformtwo'),
     path('pages/fetchformthree/<str:emailid>',views.fetchformthree,name='fetchformthree'),
@@ -34,4 +36,4 @@ urlpatterns = [
     path('pages/fetchformsix/<str:emailid>',views.fetchformsix,name='fetchformsix'),
     path('logout',views.logout_view,name='logout'),
     path('profileupdate',views.profileupdate,name='profileupdate'),
-]
+] 
