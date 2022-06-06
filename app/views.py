@@ -439,9 +439,9 @@ def moreformonec(request):
         totalmarks = request.POST['totalmarks']
         fclaimedmarks = request.POST['fclaimedmarks']
 
-        infodata = BformOneB(
+        infodata = BformOneC(
             email = email,
-            admissionProcess= admissionProcess,
+            admission= admissionProcess,
             mediaPublicity = mediaPublicity,
             socialWelfare =socialWelfare,
             totalmarks = totalmarks,
@@ -450,7 +450,7 @@ def moreformonec(request):
         infodata.save()
 
         FormProgressData = BFormProgress.objects.get(email = email)
-        FormProgressData.FormOneB = "Completed"
+        FormProgressData.FormOneC = "Completed"
         FormProgressData.save()
         return redirect('home2')
 
