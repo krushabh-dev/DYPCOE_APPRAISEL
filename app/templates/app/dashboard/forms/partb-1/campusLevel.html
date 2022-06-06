@@ -1,81 +1,126 @@
 <!-- teaching_and_load_assesment.html -->
 
-{% extends 'app/dashboard/main.html' %}
-{% block content %}
+{% extends 'app/dashboard/main.html' %} {% block content %}
 
 <section id="maindivarea">
-        <div class="container mt-n22 px-6">
-            
-                <form class="mt-4" method="post" action="{% url 'formone' %}">
-                  {% csrf_token %}
-                  <div class="row">
-                  <div class="col-md-12">
-                      <div class="card">
-                <!-- card body -->
-                <div class="card-body">
-                  <div class=" mb-6">
-                    <h4 class="mb-1">Campus Level Faculty Contribution</h4>
+  <div class="container mt-n22 px-6">
+    <form class="mt-4" method="post" action="{% url 'IIformtwoc' %}">
+      {% csrf_token %}
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <!-- card body -->
+            <div class="card-body">
+              <div class="mb-6">
+                <h4 class="mb-1">Campus Level Faculty Contribution</h4>
+              </div>
+              <div>
+                <!-- border -->
+
+                <!-- row -->
+                <div class="mb-3 row">
+                  <label
+                    for="position"
+                    class="col-sm-4 col-form-label form-label"
+                    >Media Publicity</label
+                  >
+                  <div class="col-md-8 col-12">
+                    <input
+                      type="file"
+                      class="form-control"
+                      placeholder="Media Publicity"
+                      name="mediaPublicity"
+                      id="mediaPublicity"
+                     
+                    />
                   </div>
-                  <div>
-                    <!-- border -->
+                </div>
 
-                      <!-- row -->
-                      <div class="mb-3 row">
-                        <label for="position" class="col-sm-4 col-form-label
-                            form-label">Media Publicity</label>
-                        <div class="col-md-8 col-12">
-                          <input type="file" class="form-control" placeholder="Media Publicity" name="mediaPublicity" id="mediaPublicity" required="">
-                        </div>
-                      </div>
-                      
-                      <!-- row -->
-                      <div class="mb-3 row">
-                        <label for="position" class="col-sm-4 col-form-label
-                            form-label">Admission Process</label>
-                        <div class="col-md-8 col-12">
-                          <input type="file"class="form-control" placeholder="Admission Process" name="admission" id="admission" required="">
-                        </div>
-                      </div>
+                <!-- row -->
+                <div class="mb-3 row">
+                  <label
+                    for="position"
+                    class="col-sm-4 col-form-label form-label"
+                    >Admission Process</label
+                  >
+                  <div class="col-md-8 col-12">
+                    <input
+                      type="file"
+                      class="form-control"
+                      placeholder="Admission Process"
+                      name="admission"
+                      id="admission"
+                     
+                    />
+                  </div>
+                </div>
 
-                      <!-- row -->
-                      <div class="mb-3 row">
-                        <label for="position" class="col-sm-4 col-form-label
-                            form-label">Social Welfare</label>
-                        <div class="col-md-8 col-12">
-                          <input type="file"class="form-control" placeholder="Social Welfare" name="socialWelfare" id="socialWelfare" required="">
-                        </div>
-                      </div>
+                <!-- row -->
+                <div class="mb-3 row">
+                  <label
+                    for="position"
+                    class="col-sm-4 col-form-label form-label"
+                    >Social Welfare</label
+                  >
+                  <div class="col-md-8 col-12">
+                    <input
+                      type="file"
+                      class="form-control"
+                      placeholder="Social Welfare"
+                      name="socialWelfare"
+                      id="socialWelfare"
+                     
+                    />
+                  </div>
+                </div>
 
-                      <!-- row -->
-                      <div class="mb-3 row">
-                        <label for="position" class="col-sm-4 col-form-label
-                            form-label">Marks Claimed</label>
-                        <div class="col-md-3 col-12">
-                          <input type="number"class="form-control" placeholder="Claimed Marks" name="fclaimedmarks" id="fclaimedmarks" required="">
-                        </div>
-                        <div class="col-md-1">of</div>
-                        <div class="col-md-4 col-12">
-                          <input type="number"class="form-control" placeholder="Out of Marks" name="totalmarks" id="totalmarks" required="">
-                        </div>
-                      </div>
+                <!-- row -->
+                <div class="mb-3 row">
+                  <label
+                    for="position"
+                    class="col-sm-4 col-form-label form-label"
+                    >Marks Claimed</label
+                  >
+                  <div class="col-md-3 col-12">
+                    <input
+                      type="number"
+                      class="form-control"
+                      placeholder="Claimed Marks"
+                      name="fclaimedmarks"
+                      id="fclaimedmarks"
+                      required=""
+                    />
+                  </div>
+                  <div class="col-md-1">of</div>
+                  <div class="col-md-4 col-12">
+                    <input
+                      type="number"
+                      class="form-control"
+                      placeholder="Out of Marks"
+                      name="totalmarks"
+                      id="totalmarks"
+                      required=""
+                    />
+                  </div>
+                </div>
 
-                      <!-- row -->
-                      <div class="mb-3 row">
-                        <div class="col-md-12 col-12 text-center">
-                          <input type="submit" class="w-75 btn btn-primary" value="Save &amp; Next">
-                        </div>
-                      </div>
-                      
-                    
+                <!-- row -->
+                <div class="mb-3 row">
+                  <div class="col-md-12 col-12 text-center">
+                    <input
+                      type="submit"
+                      class="w-75 btn btn-primary"
+                      value="Save &amp; Next"
+                    />
                   </div>
                 </div>
               </div>
-                  </div>
-                 
-                  </div>
-                </form>
-            
+            </div>
+          </div>
         </div>
-   </section>
+      </div>
+    </form>
+  </div>
+</section>
 
 {% endblock content %}
