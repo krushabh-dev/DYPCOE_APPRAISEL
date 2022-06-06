@@ -187,28 +187,6 @@ def hod(request):
     else:
         return redirect('login')
     
-def fetchprofile(request, emailid):
-    if request.user.is_authenticated:
-        # filleddata = FormProgress.objects.all()
-        facdata = FacultyInfo.objects.get(email = emailid)
-        filleddata = FormProgress.objects.get(email= emailid)
-        Bfilleddata = BFormProgress.objects.get(email= emailid)
-        if filleddata.basicprofile == "Completed":
-            context = {
-                'filleddata': filleddata,
-                'bfilleddata': Bfilleddata,
-                'facultyinfodata': facdata,
-            }
-            return render(request, 'app/dashboard/facultyinfo.html', context)
-        else:
-            context = {
-                    'facdata': facdata
-            }
-            return render(request, 'app/dashboard/facultyinfo.html', context)
-    else:
-        return redirect('login')
-    
-
 def formone(request):
     if request.method == "POST":
         email = request.user.email
@@ -523,7 +501,6 @@ def moreformtwo(request):
         )
 
         infodata.save()
-
         FormProgressData = BFormProgress.objects.get(email = email)
         FormProgressData.FormTwo = "Completed"
         FormProgressData.save()
@@ -697,6 +674,130 @@ def myprofile(request):
           return redirect('signin')
     else:
         return redirect('login')
+
+
+def fetchprofile(request, emailid):
+    if request.user.is_authenticated:
+        # filleddata = FormProgress.objects.all()
+        facdata = FacultyInfo.objects.get(email = emailid)
+        filleddata = FormProgress.objects.get(email= emailid)
+        Bfilleddata = BFormProgress.objects.get(email= emailid)
+        if filleddata.basicprofile == "Completed":
+            context = {
+                'filleddata': filleddata,
+                'bfilleddata': Bfilleddata,
+                'facultyinfodata': facdata,
+            }
+            return render(request, 'app/dashboard/facultyinfo.html', context)
+        else:
+            context = {
+                    'facdata': facdata
+            }
+            return render(request, 'app/dashboard/facultyinfo.html', context)
+    else:
+        return redirect('login')
+
+
+def fectchpdf(request):
+    # return render(request,'app/index.html',{'user':request.user})
+    if request.user.is_authenticated:
+        emailid = request.user.email
+        facdata = FacultyInfo.objects.get(email = emailid)
+        filleddata = FormProgress.objects.get(email= emailid)
+
+        #formone
+        try:
+            formonedata = FormOne.objects.get(email=emailid)
+        except FormTwo.DoesNotExist:
+            formonedata = []
+
+        #formtwo
+        try:
+            formtwodata = FormTwo.objects.get(email=emailid)
+        except FormTwo.DoesNotExist:
+            formtwodata = []
+
+        #formthree
+        try:
+            formthreedata = FormThree.objects.get(email=emailid)
+        except FormThree.DoesNotExist:
+            formthreedata = []
+
+        #formfour
+        try:
+            formfourdata = FormFour.objects.get(email=emailid)
+        except FormFour.DoesNotExist:
+            formfourdata = []
+
+        #formfive
+        try:
+            formfivedata = FormFive.objects.get(email=emailid)
+        except FormFive.DoesNotExist:
+            formfivedata = []
+
+        #formsix
+        try:
+            formsixdata = FormSix.objects.get(email=emailid)
+        except FormSix.DoesNotExist:
+            formsixdata = []
+
+        context = {
+            'filleddata': filleddata,
+            'user': request.user,
+            'facultyinfodata': facdata,
+            'formonedata': formonedata,
+            'formtwodata': formtwodata,
+            'formthreedata': formthreedata,
+            'formfourdata': formfourdata,
+            'formfivedata': formfivedata,
+            'formsixdata': formsixdata,
+        }
+        return render(request, 'app/dashboard/fetchforms/mainForm.html', context)
+        
+    else:
+        return redirect('login')
+
+def fetchMainForm(request, emailid):
+    # return render(request,'app/index.html',{'user':request.user})
+    if request.user.is_authenticated:
+        # filleddata = FormProgress.objects.all()
+        facdata = FacultyInfo.objects.get(email = emailid)
+        filleddata = FormProgress.objects.get(email= emailid)
+        formonedata = FormOne.objects.get(email=emailid)
+        # formtwodata = FormTwo.objects.get(email=emailid)
+        
+        #formtwo
+        try:
+            formtwodata = FormTwo.objects.get(email=emailid)
+        except FormTwo.DoesNotExist:
+            formtwodata = []
+
+        #formthree
+        try:
+            formthreedata = FormThree.objects.get(email=emailid)
+        except FormThree.DoesNotExist:
+            formthreedata = []
+
+        #formfour
+        try:
+            formfourdata = FormFour.objects.get(email=emailid)
+        except FormFour.DoesNotExist:
+            formfourdata = []
+
+        context = {
+            'filleddata': filleddata,
+            'user': request.user,
+            'facultyinfodata': facdata,
+            'formonedata': formonedata,
+            'formtwodata': formtwodata,
+            'formthreedata': formthreedata,
+            'formfourdata': formfourdata,
+        }
+        return render(request, 'app/dashboard/fetchforms/mainForm.html', context)
+        
+    else:
+        return redirect('login')
+
 
 def fetchformone(request, emailid):
     # return render(request,'app/index.html',{'user':request.user})
