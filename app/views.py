@@ -378,7 +378,17 @@ def formsix(request):
     return render(request, 'app/dashboard/forms/feedback_analysis.html')
  
 def moreformone(request):
-    return render(request, 'app/dashboard/forms/more/faculty_contribution.html')
+    if request.user.is_authenticated:
+        try:
+            filleddata = BFormProgress.objects.get(email= request.user.email)
+        except BFormProgress.DoesNotExist:
+            filleddata = []
+        context = {
+            'filleddata': filleddata,
+        }
+        return render(request, 'app/dashboard/forms/more/faculty_contribution.html', context)
+    else:
+        return redirect('login')
  
 def moreformonea(request):
     if request.method == "POST":
@@ -416,10 +426,10 @@ def moreformonea(request):
         FormProgressData = BFormProgress.objects.get(email = email)
         FormProgressData.FormOneA = "Completed"
         FormProgressData.save()
-        return redirect('home')
+        return redirect('home2')
 
     return render(request, 'app/dashboard/forms/partb-1/departmentLevel.html')
- 
+  
 def moreformonec(request):
     if request.method == "POST":
         email = request.user.email
@@ -442,7 +452,7 @@ def moreformonec(request):
         FormProgressData = BFormProgress.objects.get(email = email)
         FormProgressData.FormOneB = "Completed"
         FormProgressData.save()
-        return redirect('home')
+        return redirect('home2')
 
     return render(request, 'app/dashboard/forms/partb-1/campusLevel.html')
  
@@ -476,7 +486,7 @@ def moreformoneb(request):
         FormProgressData = BFormProgress.objects.get(email = email)
         FormProgressData.FormOneB = "Completed"
         FormProgressData.save()
-        return redirect('home')
+        return redirect('home2')
 
     return render(request, 'app/dashboard/forms/partb-1/instituteLevel.html')
 
@@ -505,7 +515,7 @@ def moreformtwo(request):
         FormProgressData.FormTwo = "Completed"
         FormProgressData.save()
         #After Completion of form we are redirected to homepage
-        return redirect('home')
+        return redirect('home2')
 
     return render(request, 'app/dashboard/forms/more/randfaculty_contribution.html')
  
@@ -535,7 +545,7 @@ def moreformthree(request):
         FormProgressData.FormThree = "Completed"
         FormProgressData.save()
         #After Completion of form we are redirected to homepage
-        return redirect('home')
+        return redirect('home2')
 
     return render(request, 'app/dashboard/forms/more/published.html')
 
@@ -563,7 +573,7 @@ def moreformfour(request):
         FormProgressData.FormFour = "Completed"
         FormProgressData.save()
         #After Completion of form we are redirected to homepage
-        return redirect('home')
+        return redirect('home2')
 
     return render(request, 'app/dashboard/forms/more/ictform.html')
 
@@ -609,7 +619,7 @@ def moreformfive(request):
         FormProgressData.FormFOur = "Completed"
         FormProgressData.save()
         #After Completion of form we are redirected to homepage
-        return redirect('home')
+        return redirect('home2')
 
     return render(request, 'app/dashboard/forms/more/researchconsultancy.html')
 
@@ -651,7 +661,7 @@ def moreformsix(request):
         FormProgressData.FormSix = "Completed"
         FormProgressData.save()
         #After Completion of form we are redirected to homepage
-        return redirect('home')
+        return redirect('home2')
 
     return render(request, 'app/dashboard/forms/more/Faculty_Value.html')
 
