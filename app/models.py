@@ -188,9 +188,9 @@ class BformOneB(models.Model):
 
 class BformOneC(models.Model):
     email = models.EmailField()
-    mediaPublicity = models.CharField(max_length=200)
-    admission = models.CharField(max_length=200)
-    socialWelfare = models.CharField(max_length=200)
+    mediaPublicity = models.FileField()
+    admission = models.FileField()
+    socialWelfare = models.FileField()
     fclaimedmarks =  models.IntegerField()
     totalmarks =  models.IntegerField()
     def __str__(self):
